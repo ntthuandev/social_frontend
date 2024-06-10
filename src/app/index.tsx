@@ -7,7 +7,11 @@ const AppRouter = () => {
 };
 
 const App = () => {
-  return <AppRouter />;
+  return (
+    <main className="flex h-screen">
+      <AppRouter />
+    </main>
+  );
 };
 
 export default App;
