@@ -1,6 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 
 import { createRouter } from "./routes";
+import AppProvider from "./main-provider";
 
 const AppRouter = () => {
   return <RouterProvider router={createRouter} />;
@@ -9,7 +10,9 @@ const AppRouter = () => {
 const App = () => {
   return (
     <main className="flex h-screen">
-      <AppRouter />
+      <AppProvider>
+        <AppRouter />
+      </AppProvider>
     </main>
   );
 };
