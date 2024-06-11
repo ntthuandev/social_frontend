@@ -16,3 +16,4 @@ export const RegisterShema = z
   });
 
 export type TRegister = z.infer<typeof RegisterShema>;
+export type TRegisterData = Omit<TRegister, "confirmPassword">;

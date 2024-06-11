@@ -5,18 +5,28 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { RegisterShema, TRegister } from "./register.type";
 import Loading from "@/components/ui/Loading";
+import { useRegister } from "./services";
+import { useState } from "react";
 
 const RegisterForm = () => {
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const { mutateAsync: registerAccount, isPending: isRegistering } =
+    useRegister();
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<TRegister>({
     resolver: zodResolver(RegisterShema),
   });
 
-  const onSubmit = (data: TRegister) => {
-    console.log(data);
+  const onSubmit = async (data: TRegister) => {
+    const { confirmPassword, ...dataWithoutConfirmPassword } = data;
+    await registerAccount(dataWithoutConfirmPassword, {
+      onError: (error) => {
+        setErrorMessage(error.message);
+      },
+    });
   };
   return (
     <form
@@ -108,11 +118,16 @@ const RegisterForm = () => {
       </div>
       <Button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isRegistering}
         className="capitalize !mt-5"
       >
-        {isSubmitting ? <Loading /> : "Đăng ký"}
+        {isRegistering ? <Loading /> : "Đăng ký"}
       </Button>
+      {errorMessage && (
+        <span className="text-error-500 small-regular text-center">
+          {errorMessage}
+        </span>
+      )}
       <div className="flex-center gap-1">
         <span>Đã có tài khoản</span>
         <Link to={pathKeys.login()} className="text-primary-600">

@@ -9,21 +9,28 @@ import { Link } from "react-router-dom";
 
 import { LoginShema, TLogin } from "./login.type";
 import Loading from "@/components/ui/Loading";
+import { useLogin } from "./services";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { mutateAsync: loginAccount, isPending: isLogining } = useLogin();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<TLogin>({
     resolver: zodResolver(LoginShema),
   });
 
-  const onSubmit = (values: TLogin) => {
-    console.log(values);
+  const onSubmit = async (data: TLogin) => {
+    const loginDataRes = await loginAccount(data, {
+      onError: (error) => setErrorMessage(error.message),
+    });
+    console.log(loginDataRes);
   };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -68,10 +75,14 @@ const LoginForm = () => {
           <span className="small-regular text-error-500">{`${errors.password.message}`}</span>
         )}
       </div>
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? <Loading /> : "Đăng Nhập"}
+      <Button type="submit" disabled={isLogining}>
+        {isLogining ? <Loading /> : "Đăng Nhập"}
       </Button>
-
+      {errorMessage && (
+        <span className="text-error-500 small-regular text-center">
+          {errorMessage}
+        </span>
+      )}
       <div className="flex-center">
         <span className="small-medium">Chưa có tài khoản?</span>
         <Link to={pathKeys.register()} className="ml-1 text-primary-500">

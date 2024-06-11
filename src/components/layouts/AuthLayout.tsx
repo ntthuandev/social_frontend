@@ -12,7 +12,7 @@ const AuthLayout = ({ children, title }: AuthLayoutProps) => {
       <div className="w-full h-full p-8">
         <div className="flex flex-col items-center justify-between h-full">
           <Logo />
-          <div className="w-full md:w-1/2 mx-auto">{children}</div>
+          <div className="w-full lg:w-1/2 mx-auto">{children}</div>
 
           <p className="text-center text-balance small-regular capitalize">
             Bằng cách {title} bạn đã đồng ý với các chính sách của chúng tôi
