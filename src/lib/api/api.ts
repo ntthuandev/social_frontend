@@ -15,10 +15,10 @@ function authRequestInterceptor(config: InternalAxiosRequestConfig) {
   return config;
 }
 
-const axiosInstance = axios.create(axiosParams);
+export const axiosInstance = axios.create(axiosParams);
 axiosInstance.interceptors.request.use(authRequestInterceptor);
 axiosInstance.interceptors.response.use(
-  (response) => response.data,
+  (response: AxiosResponse) => response.data,
   (error) => {
     if (axios.isAxiosError(error)) {
       if (error.response) {

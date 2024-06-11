@@ -1,3 +1,4 @@
+import { TUserWithToken } from "@/features/users/user.type";
 import { z } from "zod";
 
 export const LoginShema = z.object({
@@ -6,3 +7,7 @@ export const LoginShema = z.object({
 });
 
 export type TLogin = z.infer<typeof LoginShema>;
+
+export type TLoginRespone = {
+  user: TUserWithToken;
+};

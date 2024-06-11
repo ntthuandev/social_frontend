@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
 
-import { LoginShema, TLogin } from "./login.type";
+import { LoginShema, TLogin, TLoginRespone } from "./login.type";
 import Loading from "@/components/ui/Loading";
 import { useLogin } from "./services";
 
@@ -15,7 +15,6 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { mutateAsync: loginAccount, isPending: isLogining } = useLogin();
   const [errorMessage, setErrorMessage] = useState("");
-
   const {
     register,
     handleSubmit,
@@ -28,7 +27,10 @@ const LoginForm = () => {
     const loginDataRes = await loginAccount(data, {
       onError: (error) => setErrorMessage(error.message),
     });
-    console.log(loginDataRes);
+    const { token, ...userInfo } = (loginDataRes as unknown as TLoginRespone)
+      .user;
+    sessionStorage.setItem("token", token);
+    sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
   };
 
   return (

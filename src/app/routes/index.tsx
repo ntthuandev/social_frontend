@@ -4,6 +4,7 @@ import { Login, Register } from "./_auth";
 import MainLayout from "@/components/layouts/MainLayout";
 import { Explore, Home, Profile } from "./_root";
 import NotFound from "./not-found";
+import { AuthProvider } from "@/contexts/AuthContext";
 export const createRouter = createBrowserRouter([
   {
     path: pathKeys.login(),
@@ -15,7 +16,11 @@ export const createRouter = createBrowserRouter([
   },
   {
     path: pathKeys.root,
-    element: <MainLayout />,
+    element: (
+      <AuthProvider>
+        <MainLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         path: pathKeys.home(),
