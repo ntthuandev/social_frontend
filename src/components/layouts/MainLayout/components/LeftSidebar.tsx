@@ -6,14 +6,29 @@ import { TNavLink, sidebarLinks, sidebarSettingLinks } from "./menu.links";
 import Icon from "@/components/ui/Icon";
 import { useAuth } from "@/contexts/AuthContext";
 import Button from "@/components/ui/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CreatPost } from "@/features/posts";
 import { Search } from "@/features/search";
+import LogoutUI from "@/features/auth/logout/LogoutUI";
+
 const LeftSidebar = () => {
   const { pathname } = useLocation();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const { user } = useAuth();
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node))
+        setIsOpenMenu(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="hidden  md:flex px-6 py-4 flex-col justify-between min-w-[270px] bg-white border-r border-gray-300">
@@ -74,7 +89,7 @@ const LeftSidebar = () => {
           Tuỳ chọn khác
         </Button>
         {isOpenMenu ? (
-          <div className="absolute z-10 bottom-12 left-4 ">
+          <div ref={menuRef} className="absolute z-10 bottom-12 left-4 ">
             <div className="w-56 bg-white rounded-xl shadow-lg py-4 px-2">
               <ul className=" flex flex-col gap-2">
                 {sidebarSettingLinks.map((link: TNavLink) => {
@@ -96,9 +111,7 @@ const LeftSidebar = () => {
                   );
                 })}
                 <li className="border-t  w-full bg-slate-200"></li>
-                <li className="rounded-lg base-normal hover:bg-slate-200/60 transition group">
-                  <Button variant="text">Đăng xuất</Button>
-                </li>
+                <LogoutUI />
               </ul>
             </div>
           </div>

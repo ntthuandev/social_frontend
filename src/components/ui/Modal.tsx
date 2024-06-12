@@ -10,11 +10,11 @@ const Modal = ({ shouldShow, close, children }: ModalProps) => {
     <>
       {shouldShow && (
         <div
-          className="absolute z-50 left-0 top-0 overflow-auto bg-black/80 opacity-60 w-full h-full"
+          className="fixed z-50 left-0 top-0 flex items-center overflow-auto bg-black/50  w-full h-full"
           onClick={close}
         >
           <div
-            className="my-[12%] mx-auto bg-white w-1/2"
+            className="my-[12%] mx-auto bg-white w-1/2 overflow-y-auto rounded-md shadow-sm"
             onClick={(e: React.MouseEvent<HTMLDivElement>) =>
               e.stopPropagation()
             }

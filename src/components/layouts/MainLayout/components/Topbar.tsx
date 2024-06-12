@@ -1,13 +1,31 @@
 import Button from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TNavLink, topbarLinks } from "./menu.links";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/Icon";
+import LogoutUI from "@/features/auth/logout/LogoutUI";
 
 const Topbar = () => {
   const { user } = useAuth();
   const [isShowMoreOption, setIsShowMoreOption] = useState(false);
+
+  const moreOptionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleCloseOutSide = (e: MouseEvent) => {
+      if (
+        moreOptionRef.current &&
+        !moreOptionRef.current.contains(e.target as Node)
+      )
+        setIsShowMoreOption(false);
+    };
+    document.addEventListener("mousedown", handleCloseOutSide);
+
+    return () => {
+      document.addEventListener("mousedown", handleCloseOutSide);
+    };
+  }, [moreOptionRef]);
   return (
     <section className="sticky top-0 z-50 md:hidden bg-white w-full">
       <div className="flex-between py-4 px-5">
@@ -28,7 +46,7 @@ const Topbar = () => {
             />
           </Button>
           {isShowMoreOption ? (
-            <div className="absolute right-0 transition ">
+            <div ref={moreOptionRef} className="absolute right-0 transition ">
               <div className="w-56 rounded-lg shadow-md ">
                 <ul className=" flex flex-col gap-2">
                   {topbarLinks.map((link: TNavLink) => {
@@ -50,9 +68,7 @@ const Topbar = () => {
                     );
                   })}
                   <li className="border-t  w-full bg-slate-200"></li>
-                  <li className="rounded-lg base-normal hover:bg-slate-200/60 transition group">
-                    <Button variant="text">Đăng xuất</Button>
-                  </li>
+                  <LogoutUI />
                 </ul>
               </div>
             </div>

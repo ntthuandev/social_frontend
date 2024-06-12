@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 const Bottombar = () => {
   const { pathname } = useLocation();
   return (
-    <section className="z-50  flex-between sticky bottom-0 rounded-t-[20px] bg-white px-5 py-4 md:hidden">
+    <section className="z-20  flex-between sticky bottom-0 rounded-t-[20px] bg-white px-5 py-4 md:hidden">
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (

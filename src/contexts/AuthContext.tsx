@@ -29,6 +29,7 @@ type TContextType = {
   setToken: React.Dispatch<React.SetStateAction<string | null>>;
   user: TUser | null;
   setUser: React.Dispatch<React.SetStateAction<TUser | null>>;
+  logout: () => void;
 };
 
 const INITIAL_STATE = {
@@ -36,6 +37,7 @@ const INITIAL_STATE = {
   setToken: () => {},
   user: null,
   setUser: () => {},
+  logout: () => {},
 };
 
 const AuthContext = createContext<TContextType>(INITIAL_STATE);
@@ -49,6 +51,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const userInfo = sessionStorage.getItem("userInfo");
     return userInfo ? (JSON.parse(userInfo) as TUser) : null;
   });
+
+  const logout = () => {
+    setToken(null);
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userInfo");
+  };
 
   useEffect(() => {
     if (!token) {
@@ -74,6 +82,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setToken: setToken,
     user,
     setUser,
+    logout,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
