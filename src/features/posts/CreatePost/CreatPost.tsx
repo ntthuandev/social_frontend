@@ -3,6 +3,8 @@ import Icon from "@/components/ui/Icon";
 import Modal from "@/components/ui/Modal";
 import { useState } from "react";
 
+import MangageFormCreatePost from "./form/MangageFormCreatePost";
+
 const CreatPost = () => {
   const [showCreatePost, setShowCreatePost] = useState(false);
   const onClose = () => {
@@ -23,7 +25,7 @@ const CreatPost = () => {
         </Button>
       </li>
       <Modal shouldShow={showCreatePost} close={onClose}>
-        <div>CreatPost</div>
+        <MangageFormCreatePost />
       </Modal>
     </>
   );
