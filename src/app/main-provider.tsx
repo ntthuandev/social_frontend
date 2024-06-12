@@ -9,9 +9,9 @@ type AppProviderProps = {
 const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <QueryClientProvider client={queryClient}>
-      {import.meta.env.VITE_NODE_ENV === "development" && (
+      {/* {import.meta.env.VITE_NODE_ENV === "development" && (
         <ReactQueryDevtools />
-      )}
+      )} */}
       {children}
     </QueryClientProvider>
   );

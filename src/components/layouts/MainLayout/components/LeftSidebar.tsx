@@ -1,5 +1,5 @@
 import { pathKeys } from "@/lib/react-router";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import Logo from "@/components/ui/Logo";
 import { TNavLink, sidebarLinks, sidebarSettingLinks } from "./menu.links";
@@ -7,9 +7,14 @@ import Icon from "@/components/ui/Icon";
 import { useAuth } from "@/contexts/AuthContext";
 import Button from "@/components/ui/Button";
 import { useState } from "react";
+import { CreatPost } from "@/features/posts";
+import { Search } from "@/features/search";
 const LeftSidebar = () => {
+  const { pathname } = useLocation();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
   const { user } = useAuth();
+
   return (
     <nav className="hidden  md:flex px-6 py-4 flex-col justify-between min-w-[270px] bg-white border-r border-gray-300">
       <div className="flex flex-col gap-10">
@@ -19,39 +24,34 @@ const LeftSidebar = () => {
 
         <ul className="flex flex-col gap-6">
           {sidebarLinks.map((link: TNavLink) => {
+            const isActive = pathname === link.route;
             return (
               <li
                 key={link.label}
-                className="rounded-lg base-normal hover:bg-slate-200/60 transition group"
+                className={`rounded-lg base-normal hover:bg-slate-200/60 transition group ${
+                  isActive && "font-medium"
+                }`}
               >
-                {link.isButton ? (
-                  <Button
-                    variant="text"
-                    className="flex gap-4 items-center p-4 text-black group-hover:!font-medium !font-normal"
-                  >
-                    <span className="group-hover:scale-105">
-                      <Icon name={link.icon} />
-                    </span>
-                    {link.label}
-                  </Button>
-                ) : (
-                  <NavLink
-                    to={link.route}
-                    className="flex gap-4 items-center p-4 group-hover:font-medium"
-                  >
-                    <span className="group-hover:scale-105">
-                      <Icon name={link.icon} />
-                    </span>
-                    {link.label}
-                  </NavLink>
-                )}
+                <NavLink
+                  to={link.route}
+                  className="flex gap-4 items-center p-4 group-hover:font-medium"
+                >
+                  <span className="group-hover:scale-105">
+                    <Icon name={link.icon} />
+                  </span>
+                  {link.label}
+                </NavLink>
               </li>
             );
           })}
+          <Search />
+          <CreatPost />
           <li className="rounded-lg base-normal hover:bg-slate-200/60 transition group">
             <NavLink
               to={pathKeys.profile.root()}
-              className="flex gap-4 items-center p-2 group-hover:font-medium"
+              className={`flex gap-4 items-center p-2 group-hover:font-medium ${
+                pathname === pathKeys.profile.root() && "font-medium"
+              }`}
             >
               <img
                 src={user?.profileImage}

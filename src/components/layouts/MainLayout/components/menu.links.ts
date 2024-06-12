@@ -4,7 +4,6 @@ export type TNavLink = {
   label: string;
   route: string;
   icon: IconName;
-  isButton?: boolean;
 };
 export const sidebarLinks = [
   {
@@ -12,22 +11,11 @@ export const sidebarLinks = [
     route: "/",
     icon: "Home" as IconName,
   },
-  {
-    label: "Tìm kiếm",
-    route: "/search",
-    icon: "Search" as IconName,
-    isButton: true,
-  },
+
   {
     label: "Khám phá",
     route: "/explore",
     icon: "Atom" as IconName,
-  },
-  {
-    label: "Tạo",
-    route: "/create",
-    icon: "SquarePlus" as IconName,
-    isButton: true,
   },
 ];
 
@@ -54,12 +42,6 @@ export const bottombarLinks = [
     label: "Khám phá",
     route: "/explore",
     icon: "Atom" as IconName,
-  },
-  {
-    label: "Tạo",
-    route: "/create",
-    icon: "SquarePlus" as IconName,
-    isButton: true,
   },
 ];
 
