@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Logo from "../ui/Logo";
+import Logo from "@/components/ui/Logo";
 import authBgImage from "@/assets/images/auth-bg.jpg";
 
 type AuthLayoutProps = {

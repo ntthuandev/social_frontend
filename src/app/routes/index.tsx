@@ -1,7 +1,7 @@
 import { pathKeys } from "@/lib/react-router";
 import { createBrowserRouter, redirect } from "react-router-dom";
 import { Login, Register } from "./_auth";
-import MainLayout from "@/components/layouts/MainLayout";
+import { MainLayout } from "@/components/layouts";
 import { Explore, Home, Profile } from "./_root";
 import NotFound from "./not-found";
 import { AuthProvider } from "@/contexts/AuthContext";
