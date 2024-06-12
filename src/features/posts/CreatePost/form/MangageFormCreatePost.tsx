@@ -8,7 +8,10 @@ export type PostFormData = {
   imageFiles: File[];
 };
 
-const MangageFormCreatePost = () => {
+type MangageFormCreatePostProps = {
+  onSave: (postData: FormData) => void;
+};
+const MangageFormCreatePost = ({ onSave }: MangageFormCreatePostProps) => {
   const formMethod = useForm<PostFormData>();
 
   const { handleSubmit, watch } = formMethod;
@@ -16,7 +19,17 @@ const MangageFormCreatePost = () => {
   const imageFilesData = watch("imageFiles");
 
   const onSubmit = (formDataJson: PostFormData) => {
-    console.log(formDataJson);
+    const formData = new FormData();
+
+    formData.append("content", formDataJson.content);
+    formDataJson.tags.forEach((tag, index) => {
+      formData.append(`tags[${index}]`, tag);
+    });
+
+    formDataJson.imageFiles.forEach((imageFile) => {
+      formData.append("imageFiles", imageFile);
+    });
+    onSave(formData);
   };
 
   return (

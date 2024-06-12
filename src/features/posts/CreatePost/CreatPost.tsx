@@ -4,11 +4,17 @@ import Modal from "@/components/ui/Modal";
 import { useState } from "react";
 
 import MangageFormCreatePost from "./form/MangageFormCreatePost";
+import { useCreatePost } from "../services";
 
 const CreatPost = () => {
   const [showCreatePost, setShowCreatePost] = useState(false);
+  const { mutate: createPost } = useCreatePost();
   const onClose = () => {
     setShowCreatePost(false);
+  };
+
+  const handleSave = (postData: FormData) => {
+    createPost(postData);
   };
   return (
     <>
@@ -25,7 +31,7 @@ const CreatPost = () => {
         </Button>
       </li>
       <Modal shouldShow={showCreatePost} close={onClose}>
-        <MangageFormCreatePost />
+        <MangageFormCreatePost onSave={handleSave} />
       </Modal>
     </>
   );

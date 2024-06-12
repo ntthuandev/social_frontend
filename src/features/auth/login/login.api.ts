@@ -1,5 +1,5 @@
 import api from "@/lib/api/api";
-import { TLogin, TLoginRespone } from "./login.type";
+import { TLogin } from "./login.type";
 
 const URLs = {
   root: "/api/users",
