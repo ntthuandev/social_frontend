@@ -10,3 +10,9 @@ export type TUser = {
 export type TUserWithToken = TUser & {
   token: string;
 };
+export type TUserProfile = Omit<TUser, "id"> & {
+  following: boolean;
+  posts: number;
+  followedUsers: number;
+  followingUsers: number;
+};

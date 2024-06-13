@@ -50,7 +50,7 @@ const Silder = ({ imageUrls }: SliderProps) => {
           <Icon name="ArrowRight" size={16} />
         </div>
       ) : null}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-10 z-50 ">
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-10 z-10 ">
         <div className="flex-center gap-2">
           {Array.from({ length: imageURlsLength }).map((_, index) => {
             const isActive = index === imageIndex;

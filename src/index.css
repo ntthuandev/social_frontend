@@ -7,9 +7,9 @@
     @apply box-border list-none p-0 m-0 scroll-smooth;
   }
 
-  body {
+  /* body {
     @apply relative min-h-screen;
-  }
+  } */
 }
 @layer utilities {
   .body-medium {

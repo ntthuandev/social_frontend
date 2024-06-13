@@ -28,10 +28,8 @@ axiosInstance.interceptors.response.use(
 
 const api = <T>(axios: typeof axiosInstance) => {
   return {
-    get: (
-      url: string,
-      config: AxiosRequestConfig = {}
-    ): Promise<AxiosResponse<T>> => axios.get(url, config),
+    get: <T>(url: string, config: AxiosRequestConfig = {}): Promise<T> =>
+      axios.get(url, config),
     post: (
       url: string,
       body: any,

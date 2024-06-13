@@ -9,7 +9,7 @@ const AppRouter = () => {
 
 const App = () => {
   return (
-    <main className="relative flex h-screen">
+    <main className="flex h-screen">
       <AppProvider>
         <AppRouter />
       </AppProvider>

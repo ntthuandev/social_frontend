@@ -47,7 +47,7 @@ const Topbar = () => {
           </Button>
           {isShowMoreOption ? (
             <div ref={moreOptionRef} className="absolute right-0 transition ">
-              <div className="w-56 rounded-lg shadow-md ">
+              <div className="w-56 rounded-lg shadow-md bg-white">
                 <ul className=" flex flex-col gap-2">
                   {topbarLinks.map((link: TNavLink) => {
                     return (
