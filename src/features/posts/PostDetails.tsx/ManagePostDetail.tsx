@@ -6,7 +6,7 @@ import Slider from "@/components/ui/Slider";
 import CreatorInfo from "../ui/CreatorInfo";
 import ContentPostDetail from "./ui/ContentPostDetail";
 import PostContact from "../ui/PostContact";
-import { CreateComment } from "@/features/comments";
+import { CreateComment, ViewComments } from "@/features/comments";
 
 const ManagePostDetail = () => {
   const { postId } = useParams();
@@ -19,23 +19,19 @@ const ManagePostDetail = () => {
       <div className="flex-1">
         <Slider imageUrls={data?.post?.imageUrls || []} />
       </div>
-      <div className="flex-1 p-2 flex flex-col ">
+      <div className="flex-1 p-2 flex flex-col justify-between">
         <div>
           <CreatorInfo
             creator={data?.post.creator}
             createdAt={data?.post.createdAt}
           />
         </div>
-        <div className="overflow-y-scroll ">
+        <div className="overflow-y-scroll flex-1 ">
           <ContentPostDetail post={data.post} />
 
-          {Array.from({ length: 10 }, (_, i) => (
-            <div key={i} className="border-b py-2">
-              Comment {i + 1}
-            </div>
-          ))}
+          <ViewComments />
         </div>
-        <div>
+        <div className="justify-self-end">
           <PostContact />
           <CreateComment />
         </div>

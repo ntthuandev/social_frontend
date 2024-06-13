@@ -1,2 +1,3 @@
 import CreateComment from "./CreateComment/CreateComment";
-export { CreateComment };
+import ViewComments from "./ViewComment/ViewComments";
+export { CreateComment, ViewComments };

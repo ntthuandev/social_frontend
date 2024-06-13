@@ -1,2 +1,3 @@
 import useCreateComment from "./useCreateComment";
-export { useCreateComment };
+import useGetComments from "./useGetComment";
+export { useCreateComment, useGetComments };
