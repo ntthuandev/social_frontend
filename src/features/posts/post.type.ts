@@ -25,3 +25,7 @@ export type TGetPostsResponse = {
   posts: TPost[];
   pagination: TPagination;
 };
+
+export type TGetPostDetails = {
+  post: TPost;
+};

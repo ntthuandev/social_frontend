@@ -16,10 +16,10 @@ const CreatorInfo = ({ creator, createdAt }: CreatorInfoProps) => {
           alt="profileImage"
           className="size-9 rounded-full object-cover"
         />
-        <div className="flex items-center">
+        <div className="flex flex-col md:flex-row items-center ">
           <p>{creator.username}</p>
-          <Icon name="Dot" />
-          <p className="subtle-semibold lg:small-regular ">
+          <p className="subtle-semibold lg:small-regular flex">
+            <Icon name="Dot" />
             {multiFormatDateString(createdAt.toString())}
           </p>
         </div>

@@ -5,7 +5,7 @@ type SliderProps = {
   imageUrls: string[];
 };
 
-const Silder = ({ imageUrls }: SliderProps) => {
+const Slider = ({ imageUrls }: SliderProps) => {
   const imageURlsLength = imageUrls.length;
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -69,4 +69,4 @@ const Silder = ({ imageUrls }: SliderProps) => {
   );
 };
 
-export default Silder;
+export default Slider;

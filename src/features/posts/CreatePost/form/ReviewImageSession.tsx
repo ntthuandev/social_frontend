@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button";
-import Silder from "@/components/ui/Silder";
+import Slider from "@/components/ui/Slider";
 
 type ReviewImageSessionProps = {
   fileUrls: string[];
@@ -23,7 +23,7 @@ const ReviewImageSession = ({
         </Button>
       </div>
 
-      <Silder imageUrls={fileUrls} />
+      <Slider imageUrls={fileUrls} />
     </div>
   );
 };

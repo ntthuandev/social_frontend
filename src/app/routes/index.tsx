@@ -5,6 +5,7 @@ import { MainLayout } from "@/components/layouts";
 import { Explore, Home, Profile } from "./_root";
 import NotFound from "./not-found";
 import { AuthProvider } from "@/contexts/AuthContext";
+
 export const createRouter = createBrowserRouter([
   {
     path: pathKeys.login(),
@@ -33,6 +34,10 @@ export const createRouter = createBrowserRouter([
       {
         path: pathKeys.explore(),
         element: <Explore />,
+      },
+      {
+        path: pathKeys.post.postDetail(),
+        element: <Home />,
       },
     ],
   },

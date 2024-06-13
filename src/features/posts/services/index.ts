@@ -1,3 +1,4 @@
 import useCreatePost from "./useCreatePost";
 import useGetPosts from "./useGetPosts";
-export { useCreatePost, useGetPosts };
+import useGetPostDetails from "./useGetPostDetails";
+export { useCreatePost, useGetPosts, useGetPostDetails };

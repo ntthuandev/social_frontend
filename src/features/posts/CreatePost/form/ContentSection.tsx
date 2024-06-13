@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button";
-import Silder from "@/components/ui/Silder";
+import Slider from "@/components/ui/Slider";
 import ContentForm from "./ContentForm";
 
 type ContentSectionType = {
@@ -21,7 +21,7 @@ const ContentSection = ({ fileUrls, previous }: ContentSectionType) => {
       <div className="h-px w-full mt-3 bg-gray-300" />
       <div className="flex">
         <div className="flex-1 h-full">
-          <Silder imageUrls={fileUrls} />
+          <Slider imageUrls={fileUrls} />
         </div>
         <ContentForm />
       </div>

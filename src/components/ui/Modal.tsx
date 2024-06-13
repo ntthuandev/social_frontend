@@ -14,7 +14,7 @@ const Modal = ({ shouldShow, close, children }: ModalProps) => {
           onClick={close}
         >
           <div
-            className="my-[12%] mx-auto bg-white w-1/2 overflow-y-auto rounded-md shadow-sm"
+            className="my-[12%] mx-auto bg-white w-1/2 overflow-y-auto rounded-md shadow-sm "
             onClick={(e: React.MouseEvent<HTMLDivElement>) =>
               e.stopPropagation()
             }

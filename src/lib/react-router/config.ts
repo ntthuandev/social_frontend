@@ -15,6 +15,17 @@ export const pathKeys = {
       return pathKeys.root.concat("profile/");
     },
   },
+  post: {
+    root() {
+      return pathKeys.root.concat("posts/");
+    },
+    postDetail() {
+      return pathKeys.post.root().concat(":postId");
+    },
+    createPathPostDetail(postId: string) {
+      return pathKeys.post.root().concat(postId);
+    },
+  },
   explore() {
     return pathKeys.root.concat("explore/");
   },
