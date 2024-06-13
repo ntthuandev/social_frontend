@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@/components/ui/Modal";
 import React, { ReactNode, useState } from "react";
 import ManagePostDetail from "./ManagePostDetail";
+import { CommentProvider } from "@/features/comments/Context/CommentContext";
 
 type ChildProps = {
   onClick: () => void;
@@ -42,7 +43,9 @@ const PostDetail = ({ post, children }: PostDetailsProps) => {
           onClick: showPostDetail,
         })}
         <Modal shouldShow={shouldShowPostDetail} close={onClose}>
-          <ManagePostDetail />
+          <CommentProvider>
+            <ManagePostDetail />
+          </CommentProvider>
         </Modal>
       </>
     );

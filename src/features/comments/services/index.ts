@@ -1,3 +1,4 @@
 import useCreateComment from "./useCreateComment";
 import useGetComments from "./useGetComment";
-export { useCreateComment, useGetComments };
+import useGetReplyComments from "./useGetReplyComments";
+export { useCreateComment, useGetComments, useGetReplyComments };

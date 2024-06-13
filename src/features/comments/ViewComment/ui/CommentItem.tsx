@@ -1,12 +1,18 @@
 import Button from "@/components/ui/Button";
 import { TComment } from "../../comment.type";
 import { multiFormatDateString } from "@/lib/utils";
+import { useComment } from "../../Context/CommentContext";
+import ViewReplyComments from "../ViewReplyComments";
 
 type CommentItemProps = {
   comment: TComment;
 };
 
 const CommentItem = ({ comment }: CommentItemProps) => {
+  const { handleSelectedComment } = useComment();
+  const handleReply = () => {
+    handleSelectedComment(comment);
+  };
   return (
     <div className="my-1">
       <div className="flex gap-2 items-center">
@@ -29,13 +35,11 @@ const CommentItem = ({ comment }: CommentItemProps) => {
         <span className="text-[12px]">
           {multiFormatDateString(comment.createdAt.toString())}
         </span>
-        {comment.childComments > 0 ? (
-          <span className="small-semibold">
-            {comment.childComments} phản hồi
-          </span>
-        ) : null}
-        <Button variant="text">Phản hồi</Button>
+        <Button variant="text" onClick={handleReply}>
+          Phản hồi
+        </Button>
       </div>
+      <ViewReplyComments parentComment={comment} />
     </div>
   );
 };

@@ -9,6 +9,9 @@ const URLs = {
   getComments: (postId: string) => {
     return URLs.root.concat(postId);
   },
+  getReplyComments: (parentCommentId: string) => {
+    return URLs.root.concat(`child/${parentCommentId}`);
+  },
 };
 
 export const createComment = (commentData: any, postId: string) => {
@@ -19,4 +22,10 @@ export const getComments = (
   page: number = 1
 ): Promise<TGetComments> => {
   return api.get(URLs.createComment(postId), { params: { page } });
+};
+export const getReplyComments = (
+  parentCommentId: string,
+  page: number = 1
+): Promise<TGetComments> => {
+  return api.get(URLs.getReplyComments(parentCommentId), { params: { page } });
 };
