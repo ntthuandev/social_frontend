@@ -6,6 +6,7 @@ import Slider from "@/components/ui/Slider";
 import CreatorInfo from "../ui/CreatorInfo";
 import ContentPostDetail from "./ui/ContentPostDetail";
 import PostContact from "../ui/PostContact";
+import { CreateComment } from "@/features/comments";
 
 const ManagePostDetail = () => {
   const { postId } = useParams();
@@ -36,7 +37,7 @@ const ManagePostDetail = () => {
         </div>
         <div>
           <PostContact />
-          <div>Viet binh luan</div>
+          <CreateComment />
         </div>
       </div>
     </div>
