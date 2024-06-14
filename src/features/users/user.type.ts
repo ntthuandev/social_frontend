@@ -20,3 +20,13 @@ export type TUserProfile = Omit<TUser, "id"> & {
 export type TGetProfile = {
   profile: TUserProfile;
 };
+
+type TPagination = {
+  currentPage: number;
+  totalPages: number;
+  totalUsers: number;
+};
+export type TGetSuggestUsers = {
+  users: TUserProfile[];
+  pagination: TPagination;
+};

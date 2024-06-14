@@ -38,8 +38,13 @@ export const pathKeys = {
       return pathKeys.post.root().concat(postId);
     },
   },
-  explore() {
-    return pathKeys.root.concat("explore/");
+  explore: {
+    root() {
+      return pathKeys.root.concat("explore/");
+    },
+    people() {
+      return pathKeys.explore.root().concat("people");
+    },
   },
   page404() {
     return pathKeys.root.concat("404/");
