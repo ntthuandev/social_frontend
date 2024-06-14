@@ -1,10 +1,15 @@
 import Button from "@/components/ui/Button";
 import { TUserProfile } from "../user.type";
+import Following from "../Following/Following";
+import { useAuth } from "@/contexts/AuthContext";
 
 type ProfileInfoProps = {
   profile: TUserProfile;
 };
 const ProfileInfo = ({ profile }: ProfileInfoProps) => {
+  const { user } = useAuth();
+
+  const isCurrentUser = user?.username === profile.username;
   return (
     <div className="flex items-center flex-1 gap-5 md:gap-10 lg:gap-20 pr-5">
       <div>
@@ -17,9 +22,16 @@ const ProfileInfo = ({ profile }: ProfileInfoProps) => {
       <div className="flex-1 space-y-10">
         <div className="flex-between flex-wrap">
           <h3 className="body-medium">{profile.username}</h3>
-          <Button variant="text" className="text-black p-1">
-            Chỉnh sửa
-          </Button>
+          {isCurrentUser ? (
+            <Button variant="text" className="text-black p-1">
+              Chỉnh sửa
+            </Button>
+          ) : (
+            <Following
+              username={profile.username}
+              isFollowing={profile.following}
+            />
+          )}
         </div>
         <div className="flex items-center gap-5 flex-wrap ">
           <div className="flex gap-2">

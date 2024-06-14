@@ -11,7 +11,7 @@ type ProfileLayoutProps = {
 const ProfileLayout = ({ profile, children }: ProfileLayoutProps) => {
   return (
     <div className="overflow-y-scroll h-full w-full">
-      <div className="mx-auto max-w-3xl lg:w-[40rem] py-10 h-full ">
+      <div className="mx-auto max-w-4xl lg:w-3/5 py-10 h-full ">
         <ProfileInfo profile={profile} />
         <ProfileNavbar />
         {children}
