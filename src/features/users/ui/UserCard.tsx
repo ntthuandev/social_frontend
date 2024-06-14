@@ -1,5 +1,5 @@
-import Button from "@/components/ui/Button";
 import { TUserProfile } from "../user.type";
+import Following from "../Following/Following";
 
 type UserCardProps = {
   user: TUserProfile;
@@ -23,12 +23,11 @@ const UserCard = ({ user, isDetail }: UserCardProps) => {
           <span className="text-[12px]">Đề xuất cho bạn</span>
         </div>
       </div>
-      <Button
-        className="hover:opacity-80"
-        variant={isDetail ? "filled" : "text"}
-      >
-        {user.following ? "Đang theo dõi" : "Theo dõi"}
-      </Button>
+      <Following
+        username={user.username}
+        isFollowing={user.following}
+        isFilled={isDetail}
+      />
     </div>
   );
 };

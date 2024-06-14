@@ -1,3 +1,4 @@
 import TopSuggesting from "./TopSuggesting/TopSuggesting";
 import SuggestingUser from "./SuggestingUser/SuggestingUser";
-export { TopSuggesting, SuggestingUser };
+import Following from "./Following/Following";
+export { TopSuggesting, SuggestingUser, Following };

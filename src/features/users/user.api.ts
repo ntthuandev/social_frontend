@@ -9,6 +9,9 @@ const URLs = {
   getSuggestingUsers: () => {
     return URLs.root.concat("suggest");
   },
+  following: (username: string) => {
+    return URLs.root.concat(`${username}/follow`);
+  },
 };
 
 export const getProfile = (username: string): Promise<TGetProfile> => {
@@ -22,4 +25,11 @@ export const getSuggestUsers = (
   return api.get(URLs.getSuggestingUsers(), {
     params: { page, limit },
   });
+};
+
+export const followingUser = (username: string) => {
+  return api.post(URLs.following(username), null);
+};
+export const unFollowingUser = (username: string) => {
+  return api.delete(URLs.following(username));
 };
