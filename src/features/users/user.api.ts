@@ -12,6 +12,12 @@ const URLs = {
   following: (username: string) => {
     return URLs.root.concat(`${username}/follow`);
   },
+  listFollowing: (username: string) => {
+    return URLs.root.concat(`${username}/following`);
+  },
+  listFollowed: (username: string) => {
+    return URLs.root.concat(`${username}/followed`);
+  },
 };
 
 export const getProfile = (username: string): Promise<TGetProfile> => {
@@ -32,4 +38,21 @@ export const followingUser = (username: string) => {
 };
 export const unFollowingUser = (username: string) => {
   return api.delete(URLs.following(username));
+};
+
+export const getListFollowing = (
+  username: string,
+  page: number = 1
+): Promise<TGetSuggestUsers> => {
+  return api.get(URLs.listFollowing(username), {
+    params: { page },
+  });
+};
+export const getListFollowed = (
+  username: string,
+  page: number = 1
+): Promise<TGetSuggestUsers> => {
+  return api.get(URLs.listFollowed(username), {
+    params: { page },
+  });
 };

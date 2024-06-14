@@ -2,6 +2,8 @@ import Button from "@/components/ui/Button";
 import { TUserProfile } from "../user.type";
 import Following from "../Following/Following";
 import { useAuth } from "@/contexts/AuthContext";
+import ListUserFollowing from "../ListUserFollowing/ListUserFollowing";
+import ListUserFollowed from "../ListUserFollowed/ListUserFollowed";
 
 type ProfileInfoProps = {
   profile: TUserProfile;
@@ -38,14 +40,8 @@ const ProfileInfo = ({ profile }: ProfileInfoProps) => {
             <span className="base-semibold">{profile.posts}</span>
             <p>Bài viết</p>
           </div>
-          <div className="flex gap-2">
-            <span className="base-semibold">{profile.followedUsers}</span>
-            <p>Người theo dõi</p>
-          </div>
-          <div className="flex gap-2">
-            <span className="base-semibold">{profile.followingUsers}</span>
-            <p>Đang theo dõi</p>
-          </div>
+          <ListUserFollowed profile={profile} />
+          <ListUserFollowing profile={profile} />
         </div>
         {profile.bio ? <p className="small-medium">profile.bio</p> : null}
       </div>
