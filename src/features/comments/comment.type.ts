@@ -14,7 +14,7 @@ export type TComment = {
 type TPagination = {
   currentPage: number;
   totalPages: number;
-  totalComment: number;
+  totalComments: number;
 };
 
 export type TGetComments = {

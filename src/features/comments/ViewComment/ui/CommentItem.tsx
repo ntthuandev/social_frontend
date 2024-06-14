@@ -16,7 +16,7 @@ const CommentItem = ({ comment }: CommentItemProps) => {
   return (
     <div className="my-1">
       <div className="flex gap-2 items-center">
-        <div className="flex gap-1">
+        <div className="flex gap-1 items-center">
           <img
             src={comment?.author?.profileImage}
             alt="profileImage"
