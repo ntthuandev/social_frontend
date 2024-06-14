@@ -1,8 +1,14 @@
 import { IconName } from "@/components/ui/Icon";
+import { pathKeys } from "@/lib/react-router";
 
 export type TNavLink = {
   label: string;
   route: string;
+  icon: IconName;
+};
+export type TNavLinkByPathKey = {
+  label: string;
+  route: (username: string) => string;
   icon: IconName;
 };
 export const sidebarLinks = [
@@ -22,12 +28,12 @@ export const sidebarLinks = [
 export const sidebarSettingLinks = [
   {
     label: "Chỉnh sửa",
-    route: "/edit",
+    route: (username: string) => "/edit",
     icon: "UserCog" as IconName,
   },
   {
     label: "Lưu",
-    route: "/save",
+    route: (username: string) => pathKeys.profile.profileSavePost(username),
     icon: "Bookmark" as IconName,
   },
 ];

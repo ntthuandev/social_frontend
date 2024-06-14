@@ -1,5 +1,7 @@
+import ExploreLitsPost from "@/features/posts/Explore/ExploreLitsPost";
+
 const Explore = () => {
-  return <div>Explore</div>;
+  return <ExploreLitsPost />;
 };
 
 export default Explore;

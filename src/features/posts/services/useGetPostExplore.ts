@@ -1,13 +1,11 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getPostsSaved } from "../post.api";
+import { getPostsExplore } from "../post.api";
 import { TGetPostsResponse } from "../post.type";
-import { useAuth } from "@/contexts/AuthContext";
 
-const useGetPostsSaved = () => {
-  const { user } = useAuth();
+const useGetPostsExplore = () => {
   return useInfiniteQuery<TGetPostsResponse>({
-    queryKey: ["posts", "save", user?.id],
-    queryFn: ({ pageParam }) => getPostsSaved(pageParam as number),
+    queryKey: ["posts", "save"],
+    queryFn: ({ pageParam }) => getPostsExplore(pageParam as number),
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
       if (lastPage?.pagination?.currentPage < lastPage?.pagination?.totalPages)
@@ -17,4 +15,4 @@ const useGetPostsSaved = () => {
   });
 };
 
-export default useGetPostsSaved;
+export default useGetPostsExplore;

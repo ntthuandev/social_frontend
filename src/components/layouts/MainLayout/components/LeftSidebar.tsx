@@ -2,7 +2,12 @@ import { pathKeys } from "@/lib/react-router";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import Logo from "@/components/ui/Logo";
-import { TNavLink, sidebarLinks, sidebarSettingLinks } from "./menu.links";
+import {
+  TNavLink,
+  TNavLinkByPathKey,
+  sidebarLinks,
+  sidebarSettingLinks,
+} from "./menu.links";
 import Icon from "@/components/ui/Icon";
 import { useAuth } from "@/contexts/AuthContext";
 import Button from "@/components/ui/Button";
@@ -92,14 +97,14 @@ const LeftSidebar = () => {
           <div ref={menuRef} className="absolute z-10 bottom-12 left-4 ">
             <div className="w-56 bg-white rounded-xl shadow-lg py-4 px-2">
               <ul className=" flex flex-col gap-2">
-                {sidebarSettingLinks.map((link: TNavLink) => {
+                {sidebarSettingLinks.map((link: TNavLinkByPathKey) => {
                   return (
                     <li
                       key={link.label}
                       className="rounded-lg base-normal hover:bg-slate-200/60 transition group"
                     >
                       <NavLink
-                        to={link.route}
+                        to={link.route(user?.username as string)}
                         className="flex gap-4 items-center p-4 group-hover:font-medium"
                       >
                         <span className="group-hover:scale-105">

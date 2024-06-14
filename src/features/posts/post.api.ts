@@ -2,12 +2,13 @@ import api from "@/lib/api/api";
 import { TGetPostDetails, TGetPostsResponse } from "./post.type";
 
 const URLs = {
-  root: "/api/posts/",
+  root: "/api/posts",
   create: () => URLs.root,
-  getPosts: () => URLs.root.concat("feeds"),
-  getPost: (postId: string) => URLs.root.concat(postId),
-  getPostsUser: (username: string) => URLs.root.concat(`user/${username}`),
-  getPostsSaved: () => URLs.root.concat(`my/save`),
+  getPosts: () => URLs.root.concat("/feeds"),
+  getPost: (postId: string) => URLs.root.concat(`/${postId}`),
+  getPostsUser: (username: string) => URLs.root.concat(`/user/${username}`),
+  getPostsSaved: () => URLs.root.concat(`/my/save`),
+  getPostsExplore: () => URLs.root,
 };
 
 export const createPost = (postData: FormData) => {
@@ -30,4 +31,9 @@ export const getPostsUser = (
 
 export const getPostsSaved = (page: number = 1): Promise<TGetPostsResponse> => {
   return api.get(URLs.getPostsSaved(), { params: { page } });
+};
+export const getPostsExplore = (
+  page: number = 1
+): Promise<TGetPostsResponse> => {
+  return api.get(URLs.getPostsExplore(), { params: { page } });
 };
