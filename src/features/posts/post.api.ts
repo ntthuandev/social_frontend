@@ -6,6 +6,8 @@ const URLs = {
   create: () => URLs.root,
   getPosts: () => URLs.root.concat("feeds"),
   getPost: (postId: string) => URLs.root.concat(postId),
+  getPostsUser: (username: string) => URLs.root.concat(`user/${username}`),
+  getPostsSaved: () => URLs.root.concat(`my/save`),
 };
 
 export const createPost = (postData: FormData) => {
@@ -17,4 +19,15 @@ export const getPosts = (page: number = 1): Promise<TGetPostsResponse> => {
 };
 export const getPost = (postId: string): Promise<TGetPostDetails> => {
   return api.get(URLs.getPost(postId));
+};
+
+export const getPostsUser = (
+  username: string,
+  page: number = 1
+): Promise<TGetPostsResponse> => {
+  return api.get(URLs.getPostsUser(username), { params: { page } });
+};
+
+export const getPostsSaved = (page: number = 1): Promise<TGetPostsResponse> => {
+  return api.get(URLs.getPostsSaved(), { params: { page } });
 };

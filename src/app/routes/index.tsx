@@ -5,6 +5,8 @@ import { MainLayout } from "@/components/layouts";
 import { Explore, Home, Profile } from "./_root";
 import NotFound from "./not-found";
 import { AuthProvider } from "@/contexts/AuthContext";
+import PostSave from "@/features/posts/PostSave/PostSave";
+import { UserPost } from "@/features/posts";
 
 export const createRouter = createBrowserRouter([
   {
@@ -28,8 +30,18 @@ export const createRouter = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: pathKeys.profile.root(),
+        path: pathKeys.profile.pathUserProfile(),
         element: <Profile />,
+        children: [
+          {
+            path: pathKeys.profile.pathUserProfile(),
+            element: <UserPost />,
+          },
+          {
+            path: pathKeys.profile.pathProfileSavePost(),
+            element: <PostSave />,
+          },
+        ],
       },
       {
         path: pathKeys.explore(),

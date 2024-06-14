@@ -63,7 +63,7 @@ const LeftSidebar = () => {
           <CreatPost />
           <li className="rounded-lg base-normal hover:bg-slate-200/60 transition group">
             <NavLink
-              to={pathKeys.profile.root()}
+              to={pathKeys.profile.userProfle(user?.username || "")}
               className={`flex gap-4 items-center p-2 group-hover:font-medium ${
                 pathname === pathKeys.profile.root() && "font-medium"
               }`}

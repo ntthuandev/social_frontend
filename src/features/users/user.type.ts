@@ -16,3 +16,7 @@ export type TUserProfile = Omit<TUser, "id"> & {
   followedUsers: number;
   followingUsers: number;
 };
+
+export type TGetProfile = {
+  profile: TUserProfile;
+};

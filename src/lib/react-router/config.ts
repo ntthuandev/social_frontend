@@ -14,6 +14,18 @@ export const pathKeys = {
     root() {
       return pathKeys.root.concat("profile/");
     },
+    pathUserProfile() {
+      return pathKeys.root.concat(`profile/:username`);
+    },
+    pathProfileSavePost() {
+      return pathKeys.root.concat(`profile/:username/save`);
+    },
+    userProfle(username: string) {
+      return pathKeys.root.concat(`profile/${username}`);
+    },
+    profileSavePost(username: string) {
+      return pathKeys.root.concat(`profile/${username}/save`);
+    },
   },
   post: {
     root() {
