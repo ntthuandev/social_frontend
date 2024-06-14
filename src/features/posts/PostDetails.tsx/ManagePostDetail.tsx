@@ -32,7 +32,7 @@ const ManagePostDetail = () => {
           <ViewComments />
         </div>
         <div className="justify-self-end">
-          <PostContact />
+          <PostContact post={data.post} />
           <CreateComment />
         </div>
       </div>

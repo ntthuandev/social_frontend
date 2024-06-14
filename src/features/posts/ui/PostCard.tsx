@@ -14,9 +14,9 @@ const PostCard = ({ post }: PostCardProps) => {
     <div className="rounded-lg border p-5 lg:p-7 w-full max-w-screen-sm">
       <CreatorInfo creator={post.creator} createdAt={post.createdAt} />
       <Slider imageUrls={post.imageUrls} />
-      <PostContact />
+      <PostContact post={post} />
       <PostContent post={post} />
-      <ViewPostDetails post={post} />
+      {post.commentCount > 0 ? <ViewPostDetails post={post} /> : null}
     </div>
   );
 };
