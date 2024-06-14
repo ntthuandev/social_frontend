@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFollowing } from "../services";
 import Loading from "@/components/ui/Loading";
 
@@ -10,15 +10,19 @@ type FollowingProps = {
   isFilled?: boolean;
 };
 const Following = ({ username, isFollowing, isFilled }: FollowingProps) => {
-  const { mutate: followingUser, isPending: isFollowPending } = useFollowing(
-    username,
-    isFollowing
-  );
+  const {
+    mutate: followingUser,
+    isPending: isFollowPending,
+    isSuccess: isFollowingSuccess,
+  } = useFollowing(username, isFollowing);
   const [shouldeShowNoti, setShouldShowNoti] = useState(false);
   const onClose = () => setShouldShowNoti(false);
   const handleFollowing = () => {
     followingUser();
   };
+  useEffect(() => {
+    if (isFollowingSuccess) onClose();
+  }, [isFollowingSuccess, followingUser]);
   return (
     <>
       <Button

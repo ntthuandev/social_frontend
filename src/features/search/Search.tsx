@@ -2,6 +2,7 @@ import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import Modal from "@/components/ui/Modal";
 import { useState } from "react";
+import ManageSearchUser from "./SearchUser/ManageSearchUser";
 
 const Search = () => {
   const [shoudleShowSearch, setShouldShowSearch] = useState(false);
@@ -22,7 +23,7 @@ const Search = () => {
         </Button>
       </li>
       <Modal shouldShow={shoudleShowSearch} close={onClose}>
-        <div>Search</div>
+        <ManageSearchUser />
       </Modal>
     </>
   );

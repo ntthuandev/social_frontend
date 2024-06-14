@@ -16,6 +16,9 @@ const useFollowing = (username: string, isFollowing: boolean) => {
       useQuery.invalidateQueries({
         queryKey: ["user", "topUser"],
       });
+      useQuery.invalidateQueries({
+        queryKey: ["searchProfile"],
+      });
     },
   });
 };

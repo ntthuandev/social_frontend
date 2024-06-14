@@ -2,14 +2,18 @@ import { TUserProfile } from "../user.type";
 import Following from "../Following/Following";
 import { useNavigate } from "react-router-dom";
 import { pathKeys } from "@/lib/react-router";
+import { useAuth } from "@/contexts/AuthContext";
 
 type UserCardProps = {
   user: TUserProfile;
   isDetail?: boolean;
+  isSearch?: boolean;
 };
 
-const UserCard = ({ user, isDetail }: UserCardProps) => {
+const UserCard = ({ user, isDetail, isSearch }: UserCardProps) => {
   const navigate = useNavigate();
+  const { user: currentUser } = useAuth();
+  const isCurrentUser = currentUser?.username === user.username;
 
   const navigateToProfile = () =>
     navigate(pathKeys.profile.userProfle(user.username));
@@ -29,16 +33,26 @@ const UserCard = ({ user, isDetail }: UserCardProps) => {
             {user.username}
           </p>
           {isDetail ? (
-            <span className="base-regular">{user.fullname}</span>
+            <>
+              <span className="base-regular">{user.fullname}</span>
+            </>
           ) : null}
-          <span className="text-[12px]">Đề xuất cho bạn</span>
+          {isSearch ? (
+            <>
+              <span className="base-regular">{user.fullname}</span>
+            </>
+          ) : (
+            <span className="text-[12px]">Đề xuất cho bạn</span>
+          )}
         </div>
       </div>
-      <Following
-        username={user.username}
-        isFollowing={user.following}
-        isFilled={isDetail}
-      />
+      {!isCurrentUser ? (
+        <Following
+          username={user.username}
+          isFollowing={user.following}
+          isFilled={isDetail}
+        />
+      ) : null}
     </div>
   );
 };
