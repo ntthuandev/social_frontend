@@ -8,6 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import PostSave from "@/features/posts/PostSave/PostSave";
 import { UserPost } from "@/features/posts";
 import ExplorePeople from "./_root/ExplorePeople";
+import PostDetail from "./_root/PostDetail";
 
 export const createRouter = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const createRouter = createBrowserRouter([
             element: <PostSave />,
           },
         ],
+      },
+      {
+        path: pathKeys.post.postDetailPage(),
+        element: <PostDetail />,
       },
       {
         path: pathKeys.explore.root(),

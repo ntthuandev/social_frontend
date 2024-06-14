@@ -15,21 +15,22 @@ const ManagePostDetail = () => {
 
   if (!data) return null;
   return (
-    <div className="flex h-96">
+    <div className="flex h-[80vh] border">
       <div className="flex-1">
         <Slider imageUrls={data?.post?.imageUrls || []} />
       </div>
       <div className="flex-1 p-2 flex flex-col justify-between">
-        <div>
-          <CreatorInfo
-            creator={data?.post.creator}
-            createdAt={data?.post.createdAt}
-          />
-        </div>
-        <div className="overflow-y-scroll flex-1 ">
-          <ContentPostDetail post={data.post} />
+        <CreatorInfo
+          creator={data?.post.creator}
+          createdAt={data?.post.createdAt}
+        />
 
-          <ViewComments />
+        <div className=" flex overflow-y-scroll flex-1  ">
+          <div className="flex-1 h-full">
+            <ContentPostDetail post={data.post} />
+
+            <ViewComments />
+          </div>
         </div>
         <div className="justify-self-end">
           <PostContact post={data.post} />

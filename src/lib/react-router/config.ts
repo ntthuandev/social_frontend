@@ -34,6 +34,12 @@ export const pathKeys = {
     postDetail() {
       return pathKeys.post.root().concat(":postId");
     },
+    postDetailPage() {
+      return pathKeys.post.root().concat("detail/:postId");
+    },
+    creartPathPostDetailPage(postId: string) {
+      return pathKeys.post.root().concat(`detail/${postId}`);
+    },
     createPathPostDetail(postId: string) {
       return pathKeys.post.root().concat(postId);
     },

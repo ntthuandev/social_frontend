@@ -42,7 +42,11 @@ const PostDetail = ({ post, children }: PostDetailsProps) => {
         {React.cloneElement(Child as React.ReactElement<ChildProps>, {
           onClick: showPostDetail,
         })}
-        <Modal shouldShow={shouldShowPostDetail} close={onClose}>
+        <Modal
+          shouldShow={shouldShowPostDetail}
+          close={onClose}
+          className="w-2/3"
+        >
           <CommentProvider>
             <ManagePostDetail />
           </CommentProvider>

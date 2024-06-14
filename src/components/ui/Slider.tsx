@@ -26,7 +26,7 @@ const Slider = ({ imageUrls }: SliderProps) => {
     }
   };
   return (
-    <div className="relative">
+    <div className="relative h-full">
       {imageIndex !== 0 ? (
         <div
           className="absolute left-1 top-1/2 bg-white rounded-full p-1 shadow-sm"
@@ -35,7 +35,7 @@ const Slider = ({ imageUrls }: SliderProps) => {
           <Icon name="ArrowLeft" size={16} />
         </div>
       ) : null}
-      <div className="h-96 w-full overflow-hidden">
+      <div className="h-full w-full overflow-hidden">
         <img
           src={imageUrls[imageIndex]}
           alt="image-review"
@@ -50,7 +50,7 @@ const Slider = ({ imageUrls }: SliderProps) => {
           <Icon name="ArrowRight" size={16} />
         </div>
       ) : null}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-10 z-10 ">
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-10  ">
         <div className="flex-center gap-2">
           {Array.from({ length: imageURlsLength }).map((_, index) => {
             const isActive = index === imageIndex;
