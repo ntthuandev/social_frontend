@@ -27,7 +27,7 @@ export const sidebarLinks = [
 
 export const sidebarSettingLinks = [
   {
-    label: "Chỉnh sửa",
+    label: "Cài đặt",
     route: (username: string) => "/edit",
     icon: "UserCog" as IconName,
   },

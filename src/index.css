@@ -53,4 +53,7 @@
   .cs-input-auth {
     @apply w-full h-10 outline-none text-base;
   }
+  .cs-input-profile {
+    @apply px-2 py-3 bg-slate-100 base-regular outline-none rounded-md;
+  }
 }

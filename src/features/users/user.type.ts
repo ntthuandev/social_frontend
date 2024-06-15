@@ -30,3 +30,7 @@ export type TGetSuggestUsers = {
   users: TUserProfile[];
   pagination: TPagination;
 };
+
+export type TUpdateProfileResponse = {
+  user: TUser;
+};

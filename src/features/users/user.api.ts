@@ -1,11 +1,17 @@
 import api from "@/lib/api/api";
-import { TGetProfile, TGetSuggestUsers } from "./user.type";
+import {
+  TGetProfile,
+  TGetSuggestUsers,
+  TUpdateProfileResponse,
+} from "./user.type";
+import { MutationFunction } from "@tanstack/react-query";
 
 const URLs = {
   root: "/api/profile/",
   getProfile: (username: string) => {
     return URLs.root.concat(username);
   },
+  updateProfile: "/api/user",
   getSuggestingUsers: () => {
     return URLs.root.concat("suggest");
   },
@@ -55,4 +61,10 @@ export const getListFollowed = (
   return api.get(URLs.listFollowed(username), {
     params: { page },
   });
+};
+export const updateProfile: MutationFunction<
+  TUpdateProfileResponse,
+  FormData
+> = (profileData: FormData): Promise<TUpdateProfileResponse> => {
+  return api.put(URLs.updateProfile, profileData);
 };

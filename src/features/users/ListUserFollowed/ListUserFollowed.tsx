@@ -33,7 +33,7 @@ const ListUserFollowed = ({ profile }: ListUserFollowedProps) => {
       fetchNextPage();
     }
   }, [inView]);
-  console.log(data);
+
   if (!data) return null;
   if (isLoading) return <span>Người theo dõi...</span>;
   if (!followeds) return null;

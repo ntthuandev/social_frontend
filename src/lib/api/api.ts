@@ -35,11 +35,11 @@ const api = <T>(axios: typeof axiosInstance) => {
       body: any,
       config: AxiosRequestConfig = {}
     ): Promise<AxiosResponse<T>> => axios.post(url, body, config),
-    put: (
+    put: <T>(
       url: string,
       body: any,
       config: AxiosRequestConfig = {}
-    ): Promise<AxiosResponse<T>> => axios.put(url, body, config),
+    ): Promise<T> => axios.put(url, body, config),
     patch: (
       url: string,
       body: any,
