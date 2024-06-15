@@ -1,6 +1,6 @@
 # Social Media App
 
-A social media application built with React, React Query, Tailwind CSS, Zod, and React Hook Form.
+A social media application built with React, React Query, Tailwind CSS, Zod, Axios and React Hook Form.
 
 ## Table of Contents
 
@@ -47,15 +47,15 @@ A social media application built with React, React Query, Tailwind CSS, Zod, and
    ```
 2. Install the project dependencies using npm:
    ```bash
-  npm install
+     npm install
    ```
 3. Set Up Environment Variables:
-Create a new file named `.env` in the root of your project and add the following content:
-  ```js
-  VITE_API_URL = https://social-api-thuannt.onrender.com
-   ```
+   Create a new file named `.env` in the root of your project and add the following content:
+     ```js
+     VITE_API_URL = https://social-api-thuannt.onrender.com
+      ```
 4. Running the Project:
    ```bash
-  npm run dev
+     npm run dev
    ```
 Link Demo:  [Link Deploy](https://social-frontend-thuannt.onrender.com) https://social-frontend-thuannt.onrender.com
