@@ -9,7 +9,6 @@ const ContentForm = () => {
   register("tags");
   const handleSetTags = (tagsSting: string) => {
     const tagsArray = tagsSting.trim().split("#").slice(1);
-    console.log(tagsArray);
     setValue("tags", tagsArray);
   };
   return (

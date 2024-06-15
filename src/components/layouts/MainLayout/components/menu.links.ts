@@ -28,7 +28,7 @@ export const sidebarLinks = [
 export const sidebarSettingLinks = [
   {
     label: "Cài đặt",
-    route: (username: string) => "/edit",
+    route: (username: string) => `/setting/${username}`,
     icon: "UserCog" as IconName,
   },
   {

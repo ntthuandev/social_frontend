@@ -6,7 +6,7 @@ const useGetComments = (postId: string) => {
     queryKey: ["comment", postId],
     queryFn: ({ pageParam }) => getComments(postId, pageParam),
     initialPageParam: 1,
-    getNextPageParam: (lastPage, pages) => {
+    getNextPageParam: (lastPage) => {
       if (lastPage.pagination.currentPage < lastPage.pagination.totalPages)
         return lastPage.pagination.currentPage + 1;
       return undefined;

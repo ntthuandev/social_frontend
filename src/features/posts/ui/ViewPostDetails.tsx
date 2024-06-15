@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import { TPost } from "../post.type";
 import { PostDetail } from "../PostDetails.tsx";
 

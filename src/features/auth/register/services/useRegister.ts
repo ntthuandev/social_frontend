@@ -8,8 +8,7 @@ const useRegister = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: (registerData: TRegisterData) => registerAccount(registerData),
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: () => {
       navigate(pathKeys.login());
     },
   });

@@ -19,11 +19,7 @@ const ManageProfileUpdateInfo = () => {
   const { mutate: updateProfileInfo, isPending: isUpdateProfilePending } =
     useUpdateProfile();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TProfileInfo>({
+  const { register, handleSubmit } = useForm<TProfileInfo>({
     resolver: zodResolver(ProfileInfoSchema),
     defaultValues: {
       fullname: user?.fullname || "",

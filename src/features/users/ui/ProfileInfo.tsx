@@ -1,4 +1,3 @@
-import Button from "@/components/ui/Button";
 import { TUserProfile } from "../user.type";
 import Following from "../Following/Following";
 import { useAuth } from "@/contexts/AuthContext";
