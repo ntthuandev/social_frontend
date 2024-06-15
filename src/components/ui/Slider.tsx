@@ -26,10 +26,10 @@ const Slider = ({ imageUrls }: SliderProps) => {
     }
   };
   return (
-    <div className="relative h-full">
+    <div className="relative h-[90vh]">
       {imageIndex !== 0 ? (
         <div
-          className="absolute left-1 top-1/2 bg-white rounded-full p-1 shadow-sm"
+          className="absolute left-1 top-1/2 -translate-y-1/2 bg-white rounded-full p-1 shadow-sm"
           onClick={() => changeSlide("LEFT")}
         >
           <Icon name="ArrowLeft" size={16} />
@@ -44,7 +44,7 @@ const Slider = ({ imageUrls }: SliderProps) => {
       </div>
       {imageIndex < imageURlsLength - 1 ? (
         <div
-          className="absolute right-1 top-1/2 bg-white rounded-full p-1 shadow-sm"
+          className="absolute right-1 top-1/2 -translate-y-1/2 bg-white rounded-full p-1 shadow-sm"
           onClick={() => changeSlide("RIGHT")}
         >
           <Icon name="ArrowRight" size={16} />
