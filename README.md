@@ -1,30 +1,61 @@
-# React + TypeScript + Vite
+# Social Media App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A social media application built with React, React Query, Tailwind CSS, Zod, and React Hook Form.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Technologies](#technologies)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- User authentication and authorization
+- Profile management
+- Follow Profile and mangement
+- Post creation and management
+- Like and Save Functionality: Enable users to like and save posts, with dedicated pages for managing liked and saved content
+- Profile Page: A user profile page showcasing liked posts and providing options to edit the profile
+- Browse Other Users: Allow users to browse and explore other users' profiles and posts
+- Real-time updates with React Query
+- Form validation with React Hook Form and Zod
+- Responsive design with Tailwind CSS
+- Responsive UI with Bottom Bar: A responsive UI with a bottom bar, enhancing the mobile app feel for seamless navigation
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [React](https://reactjs.org/)
+- [React Query](https://react-query.tanstack.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Zod](https://github.com/colinhacks/zod)
+- [React Hook Form](https://react-hook-form.com/)
+- [Axios](https://axios-http.com/)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Getting Started
+
+### Prerequisites
+
+- Node.js (>=14.x)
+- npm (>=6.x) or yarn (>=1.x)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/ntthuandev/social_frontend
+   cd social-media-app
+   ```
+2. Install the project dependencies using npm:
+   ```bash
+  npm install
+   ```
+3. Set Up Environment Variables:
+Create a new file named `.env` in the root of your project and add the following content:
+  ```js
+  VITE_API_URL = https://social-api-thuannt.onrender.com
+   ```
+4. Running the Project:
+   ```bash
+  npm run dev
+   ```
+Link Demo:  [Link Deploy](https://social-frontend-thuannt.onrender.com) https://social-frontend-thuannt.onrender.com
