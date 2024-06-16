@@ -1,10 +1,10 @@
 export const pathKeys = {
   root: "/",
   login() {
-    return pathKeys.root.concat("login/");
+    return pathKeys.root.concat("login");
   },
   register() {
-    return pathKeys.root.concat("register/");
+    return pathKeys.root.concat("register");
   },
 
   home() {
@@ -12,7 +12,7 @@ export const pathKeys = {
   },
   profile: {
     root() {
-      return pathKeys.root.concat("profile/");
+      return pathKeys.root.concat("profile");
     },
     pathUserProfile() {
       return pathKeys.root.concat(`profile/:username`);
@@ -46,7 +46,7 @@ export const pathKeys = {
   },
   explore: {
     root() {
-      return pathKeys.root.concat("explore/");
+      return pathKeys.root.concat("explore");
     },
     people() {
       return pathKeys.explore.root().concat("people");
