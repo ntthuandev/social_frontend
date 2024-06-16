@@ -7,4 +7,10 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
+  server: {
+    fs: {
+      // Allow serving files not under public/ in dev mode
+      allow: [".."],
+    },
+  },
 });
