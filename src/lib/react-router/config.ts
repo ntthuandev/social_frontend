@@ -49,7 +49,7 @@ export const pathKeys = {
       return pathKeys.root.concat("explore");
     },
     people() {
-      return pathKeys.explore.root().concat("people");
+      return pathKeys.explore.root().concat("/people");
     },
   },
   page404() {
