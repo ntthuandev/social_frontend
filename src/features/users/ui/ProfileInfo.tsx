@@ -21,7 +21,7 @@ const ProfileInfo = ({ profile }: ProfileInfoProps) => {
           alt="profileImage"
           className="size-48 rounded-full object-cover"
         />
-        <UpdateAvatar profile={profile} />
+        {isCurrentUser ? <UpdateAvatar profile={profile} /> : null}
       </div>
       <div className="flex-1 spave-y-3 lg:space-y-5 pb-3">
         <div className="flex-between flex-wrap">

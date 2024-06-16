@@ -7,7 +7,7 @@ type PostContentProps = {
 };
 const PostContent = ({ post }: PostContentProps) => {
   const contentToArray = post.content.split(" ").length;
-  const contentLimit = post.content.split(" ").slice(0, 10).toString();
+  const contentLimit = post.content.split(" ").slice(0, 10).join(" ");
   const tagsString = `#${post.tags.join("#")}`;
   const [showMore, setShowMore] = useState(() => contentToArray > 10);
 

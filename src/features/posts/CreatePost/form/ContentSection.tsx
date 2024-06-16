@@ -20,7 +20,7 @@ const ContentSection = ({ fileUrls, previous }: ContentSectionType) => {
       </div>
       <div className="h-px w-full mt-3 bg-gray-300" />
       <div className="flex">
-        <div className="flex-1 h-full">
+        <div className="flex-1 h-[60vh]">
           <Slider imageUrls={fileUrls} />
         </div>
         <ContentForm />

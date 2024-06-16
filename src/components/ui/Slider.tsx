@@ -26,7 +26,7 @@ const Slider = ({ imageUrls }: SliderProps) => {
     }
   };
   return (
-    <div className="relative h-[90vh]">
+    <div className="relative h-full">
       {imageIndex !== 0 ? (
         <div
           className="absolute left-1 top-1/2 -translate-y-1/2 bg-white rounded-full p-1 shadow-sm"

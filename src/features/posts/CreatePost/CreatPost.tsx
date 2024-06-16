@@ -30,7 +30,7 @@ const CreatPost = () => {
           Tạo
         </Button>
       </li>
-      <Modal shouldShow={showCreatePost} close={onClose}>
+      <Modal shouldShow={showCreatePost} close={onClose} className="w-2/3">
         <MangageFormCreatePost onSave={handleSave} />
       </Modal>
     </>

@@ -12,7 +12,7 @@ const ReviewImageSession = ({
   previous,
 }: ReviewImageSessionProps) => {
   return (
-    <div>
+    <div className="">
       <div className="flex-between px-5 py-2">
         <Button variant="text" onClick={() => previous?.()}>
           Quay về
@@ -22,8 +22,9 @@ const ReviewImageSession = ({
           Tiếp tục
         </Button>
       </div>
-
-      <Slider imageUrls={fileUrls} />
+      <div className="h-[60vh]">
+        <Slider imageUrls={fileUrls} />
+      </div>
     </div>
   );
 };

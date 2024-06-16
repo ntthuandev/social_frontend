@@ -11,9 +11,11 @@ type PostCardProps = {
 };
 const PostCard = ({ post }: PostCardProps) => {
   return (
-    <div className="rounded-lg border p-5 lg:p-7 w-full max-w-screen-sm">
+    <div className="rounded-lg border p-5 lg:p-7 w-full  max-w-screen-sm">
       <CreatorInfo creator={post.creator} createdAt={post.createdAt} />
-      <Slider imageUrls={post.imageUrls} />
+      <div className="h-[60vh]">
+        <Slider imageUrls={post.imageUrls} />
+      </div>
       <PostContact post={post} />
       <PostContent post={post} />
       {post.commentCount > 0 ? <ViewPostDetails post={post} /> : null}
