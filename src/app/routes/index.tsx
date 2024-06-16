@@ -67,8 +67,8 @@ export const createRouter = createBrowserRouter([
     path: pathKeys.page404(),
     element: <NotFound />,
   },
-  {
-    path: pathKeys.catchAll(),
-    loader: async () => redirect(pathKeys.page404()),
-  },
+  // {
+  //   path: pathKeys.catchAll(),
+  //   loader: async () => redirect(pathKeys.page404()),
+  // },
 ]);
